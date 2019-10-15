@@ -1,0 +1,5 @@
+1 Удалять customer, manager, employee
+2 Добавлять customer, manager, employee
+3 Обновлять customer, manager, employee
+4 Создавать customer, manager, employee
+5
