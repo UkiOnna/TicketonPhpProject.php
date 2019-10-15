@@ -6,7 +6,7 @@
         "catfan/medoo": "dev-master",
         "klein/klein": "dev-master",
         "smarty/smarty": "^3.1@dev",
-        "ext-json":""
+        "ext-json":"*"
     },
     "require-dev": {
         "filp/whoops": "^2.2@dev"
