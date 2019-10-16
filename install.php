@@ -88,6 +88,7 @@ $db->create("tickets", [
 
 ]);
 
+
 $db->query("ALTER TABLE users ADD CONSTRAINT roles
                   FOREIGN KEY (role_id) 
                   REFERENCES roles(id);
