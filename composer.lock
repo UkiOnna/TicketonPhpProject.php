@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ddfcdc504a6024342faa738b563abda",
+    "content-hash": "c3850c7158e393a40d3f8635fbf65b3f",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/catfan/Medoo.git",
-                "reference": "113519d8032044a1d7b0852740e8f8d210b4dee2"
+                "reference": "3b28d9469fd3f6f6e9c1106ec4342111ab2b50c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/catfan/Medoo/zipball/113519d8032044a1d7b0852740e8f8d210b4dee2",
-                "reference": "113519d8032044a1d7b0852740e8f8d210b4dee2",
+                "url": "https://api.github.com/repos/catfan/Medoo/zipball/3b28d9469fd3f6f6e9c1106ec4342111ab2b50c4",
+                "reference": "3b28d9469fd3f6f6e9c1106ec4342111ab2b50c4",
                 "shasum": ""
             },
             "require": {
@@ -64,7 +64,7 @@
                 "sql",
                 "sqlite"
             ],
-            "time": "2019-08-14T13:47:48+00:00"
+            "time": "2019-10-12T13:13:11+00:00"
         },
         {
             "name": "klein/klein",
@@ -299,6 +299,8 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-json": "*"
+    },
     "platform-dev": []
 }

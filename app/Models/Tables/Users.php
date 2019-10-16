@@ -8,5 +8,4 @@ class Users extends Table
 {
     protected static $table_name = "users";
 
-
 }
