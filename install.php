@@ -103,3 +103,23 @@ $db->query("ALTER TABLE tickets ADD CONSTRAINT users_employee_fk
                   FOREIGN KEY (status_id) 
                   REFERENCES statuses(id);")->execute();
 
+$db->insert("statuses", [
+    "id" => 1,
+    "name" => "ordered"
+]);
+$db->insert("statuses", [
+    "id" => 2,
+    "name" => "order_cancelled"
+]);
+$db->insert("statuses", [
+    "id" => 3,
+    "name" => "work_cancelled"
+]);
+$db->insert("statuses", [
+    "id" => 4,
+    "name" => "check"
+]);
+$db->insert("statuses", [
+    "id" => 5,
+    "name" => "complete"
+]);
