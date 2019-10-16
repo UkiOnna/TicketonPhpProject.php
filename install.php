@@ -123,3 +123,7 @@ $db->insert("statuses", [
     "id" => 5,
     "name" => "complete"
 ]);
+$db->insert("statuses", [
+    "id" => 6,
+    "name" => "work"
+]);
