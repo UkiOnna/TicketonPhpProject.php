@@ -128,3 +128,21 @@ $db->insert("statuses", [
     "id" => 6,
     "name" => "work"
 ]);
+
+
+$db->insert("roles", [
+    "id" => 1,
+    "name" => "admin"
+]);
+$db->insert("roles", [
+    "id" => 2,
+    "name" => "manager"
+]);
+$db->insert("roles", [
+    "id" => 3,
+    "name" => "customer"
+]);
+$db->insert("roles", [
+    "id" => 4,
+    "name" => "employer"
+]);

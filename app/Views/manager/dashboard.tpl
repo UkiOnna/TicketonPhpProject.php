@@ -1,3 +1,5 @@
+{*Created by Lev*}
+
 {include file="manager/blocks/head.tpl"}
 
 <div class="container">
@@ -11,14 +13,14 @@
                 <div class="mb-1">
 
                 <span class="badge badge-secondary">
-                    {$ticket.category.name}
+                    {$ticket.status.name}
                 </span>
                     <strong>{$ticket.title}</strong>
                 </div>
 
-                <small class="text-muted">
-                    <a href="/manager/users/{$ticket.author.id}">{$ticket.author.name}</a>, {$ticket.date}
-                </small>
+{*                <small class="text-muted">*}
+{*                    <a href="/manager/users/{$ticket.author.id}">{$ticket.author.name}</a>, {$ticket.date}*}
+{*                </small>*}
 
             </div>
 

@@ -1,4 +1,5 @@
 <?php
+//Made by Lev
 
 namespace Models\Tables;
 
@@ -17,7 +18,10 @@ class Statuses extends Table {
             $id = $item["status_id"];
 
             $item["status"] = $statuses->get( "*", [
-                "id" => $id
+                "id" => $id,
+                "name" => $statuses->select("*", "name", [
+                    "id" => $id
+                ])
             ]);
 
 //            $item["author"] = $users->get("*", [

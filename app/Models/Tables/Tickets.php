@@ -1,4 +1,5 @@
 <?php
+//Created by Lev
 
 namespace Models\Tables;
 
@@ -11,17 +12,18 @@ class Tickets extends Table {
     function map($array){
         foreach ($array as &$item){
 
-            $categories = new Statuses();
+            $statuses = new Statuses();
 //            $users = new Users();
-//
-//            $id = $item["category_id"];
-//
-//            $item["category"] = $categories->get( "*", [
-//                "id" => $id
-//            ]);
-//
-//            $item["author"] = $users->get("*", [
-//                "id" => $item["user_id"]
+
+            $id = $item["status_id"];
+
+            $item["status"] = $statuses->get( "*", [
+                "id" => $id,
+                "name"
+            ]);
+
+//            $item["customer"] = $users->get("*", [
+//                "id" => $item["customer_id"]
 //            ]);
 
         }
