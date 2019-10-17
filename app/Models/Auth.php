@@ -41,6 +41,24 @@ class Auth
         Flashes::message("Successful login", "info");
         return $users->has(["hash" => $hash]);
     }
+    static function registration($username, $password, $name){
+        if (!$username || !$password){
+            Flashes::message("Incorrect login or password", "danger");
+            return false;
+        }
+        $users = new Users();
+        $user = $users->get("*", ["username" => $username]);
+        if ($user){
+            Flashes::message("User with this username is exist", "danger");
+            return false;
+        }
+        $users->insert([
+            "username" => $username,
+            "password" => Password::hash($password),
+            "name" => $name
+        ]);
+        return $users->get("*", ["username" => $username]);
+    }
     static function logout()
     {
         $users = new Users();
