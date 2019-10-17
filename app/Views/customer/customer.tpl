@@ -41,16 +41,16 @@
 </head>
 <body>
 
-<h3>Contact Form</h3>
+<h3>Ticket form</h3>
 
 <div class="container">
-    <form action="">
-        <label for="title">First Name</label>
+    <form method="post">
+        <label for="title">Title</label>
         <input type="text" id="title" name="title" placeholder="Title">
 
 
-        <label for="title">Title</label>
-        <textarea id="title" name="title" placeholder="Title" style="height:200px"></textarea>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Description" style="height:200px"></textarea>
 
         <input type="submit" value="Submit">
     </form>

@@ -1,15 +1,36 @@
 <?php
 
-use Controllers\Customer\Customer2Controller;
-use Core\RenderEngine;
+use Controllers\Customer\CustomerController;
+use Core\Helpers;
+use Klein\Klein;
+use Klein\Request;
+use Klein\Response;
+use Models\Auth;
+use Models\Cookies;
+use Models\Hash;
+use Models\Tables\Tickets;
+use Models\Tables\Users;
 
 
-$router->get("/asd/?", function () {
-    try {
-        $res = RenderEngine::get()->fetch("customer/customer.tpl");
-    } catch (SmartyException $e) {
-        return $e->getMessage();
-    }
-
-    return $res;
+$router->get("/customer/?", function () {
+    $controller=new CustomerController();
+    $controller->show();
 });
+
+$router->post("/customer/?", function (Request $request,Response $response) {
+    //Auth::middleware($response);
+    $users=new Users();
+    $user=$users->has([
+        "hash" => Cookies::get("hash")
+    ]);
+
+    $tickets = new Tickets();
+    $tickets->insert([
+        "title" => $request->param("title"),
+        "description"=> $request->param("description"),
+        "customer_id"=> $user->id ?: 1,
+        "status_id"=>1
+    ]);
+    return  $response->redirect("/customer")->send();
+});
+
