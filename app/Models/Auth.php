@@ -44,12 +44,14 @@ class Auth
     static function registration($username, $password, $name){
         if (!$username || !$password){
             Flashes::message("Incorrect login or password", "danger");
+            var_dump($username, $password);
             return false;
         }
         $users = new Users();
         $user = $users->get("*", ["username" => $username]);
         if ($user){
             Flashes::message("User with this username is exist", "danger");
+            var_dump($user);
             return false;
         }
         $users->insert([

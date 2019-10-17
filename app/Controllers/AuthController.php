@@ -15,7 +15,7 @@ use Models\Auth;
 class AuthController extends Controller
 {
     function loginShow(){
-        return $this->render("admin/login", [
+        return $this->render("auth/login", [
             "title" => "Login"
         ]);
     }
@@ -25,7 +25,7 @@ class AuthController extends Controller
     }
 
     function registrationShow(){
-        return $this->render("admin/registration", [
+        return $this->render("auth/registration", [
             "title" => "Registration"
         ]);
     }

@@ -12,4 +12,6 @@ $router->get("/?", function () {
     $controller->show();
 });
 
+include "auth.php";
+
 $router->dispatch();
