@@ -27,6 +27,7 @@ abstract class Table extends Model
 
     function insert($datas)
     {
+//        print_r($datas);
         return $this->db()->insert(static::$table_name, $datas);
     }
 
