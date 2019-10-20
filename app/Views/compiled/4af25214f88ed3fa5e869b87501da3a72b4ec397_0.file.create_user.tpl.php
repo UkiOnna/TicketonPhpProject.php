@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-10-21 00:50:20
+/* Smarty version 3.1.34-dev-7, created on 2019-10-21 00:58:50
   from 'C:\OSPanel\domains\test\app\Views\admin\dashboard\create_user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5dacd69ce41fa8_21007074',
+  'unifunc' => 'content_5dacd89aeb0069_21294527',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4af25214f88ed3fa5e869b87501da3a72b4ec397' => 
     array (
       0 => 'C:\\OSPanel\\domains\\test\\app\\Views\\admin\\dashboard\\create_user.tpl',
-      1 => 1571607906,
+      1 => 1571608554,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:global/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5dacd69ce41fa8_21007074 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dacd89aeb0069_21294527 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:admin/blocks/head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 

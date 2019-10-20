@@ -37,10 +37,12 @@ $router->with("/admin/dashboard", function () use ($router) {
                 "role_id"=>$request->param("role")
                 ];
             $controller->createUser($user);
+            $response->redirect("/admin/dashboard");
         });
-        $router->post("/[delete:action]/[i:id]?", function (Request $request, Response $response){
+        $router->get("/[delete:action]/[i:id]?", function (Request $request, Response $response) use ($controller){
 //        Auth::middleware($response);
-print_r("delete");
+            $controller->deleteUser($request->param("id"));
+            $response->redirect("/admin/dashboard");
         });
 
         $router->post("/[update:action]/[i:id]?", function (Request $request, Response $response){
