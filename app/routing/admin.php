@@ -15,9 +15,8 @@ $router->with("/admin", function () use ($router) {
     });
     $router->get("/dashboard/?", function (Request $request, Response $response){
 //        Auth::middleware($response);
-//        $controller = new DashboardController();
-//        return $controller->show();
-        print_r("jj");
+        $controller = new DashboardController();
+        return $controller->show();
     });
 
 });

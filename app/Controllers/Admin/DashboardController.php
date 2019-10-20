@@ -10,7 +10,6 @@ class DashboardController extends Controller
     function show(){
         $items = new Blocks();
         $blocks = $items->getBlocks();
-        $blocks = $items->map($items);
         return $this->render("admin/dashboard",["blocks"=> $blocks]);//dashboard.tpl
     }
 }
