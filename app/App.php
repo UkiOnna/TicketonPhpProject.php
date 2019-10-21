@@ -16,6 +16,7 @@ final class App
 
     private function initRouter()
     {
+//        print_r(Helpers::path("app", "routing", "web.php"));
         include Helpers::path("app", "routing", "web.php");
     }
 

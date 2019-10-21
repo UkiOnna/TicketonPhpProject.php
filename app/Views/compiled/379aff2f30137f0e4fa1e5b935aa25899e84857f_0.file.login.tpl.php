@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-10-20 13:58:35
-  from 'H:\OSPanel\domains\TicketonPhpProject.php\app\Views\auth\login.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2019-10-21 17:49:39
+  from 'C:\OSPanel\domains\TicketonPhpProject.php\app\Views\auth\login.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5dac3ddbbd4f34_25992340',
+  'unifunc' => 'content_5dadc583366d80_61136555',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '28674a0aeb11924be3b365be40305f8192121fd9' => 
+    '379aff2f30137f0e4fa1e5b935aa25899e84857f' => 
     array (
-      0 => 'H:\\OSPanel\\domains\\TicketonPhpProject.php\\app\\Views\\auth\\login.tpl',
-      1 => 1571567865,
+      0 => 'C:\\OSPanel\\domains\\TicketonPhpProject.php\\app\\Views\\auth\\login.tpl',
+      1 => 1571664850,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:global/footer.tpl' => 1,
   ),
 ),false)) {
-function content_5dac3ddbbd4f34_25992340 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dadc583366d80_61136555 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:global/head.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -31,7 +31,7 @@ $_smarty_tpl->_subTemplateRender("file:global/head.tpl", $_smarty_tpl->cache_id,
         <div class="col-12 col-lg-3 offset-lg-4 text-center">
 
             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['g']->value['flashes'], 'flash');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['flashes']->value, 'flash');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['flash']->value) {
 ?>
