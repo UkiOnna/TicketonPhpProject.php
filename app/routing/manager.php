@@ -17,14 +17,17 @@ $router->with("/manager", function () use ($router) {
     $router->get("/dashboard/?", function (Request $request, Response $response) {
 
         // Auth::middleware($response);
-
-        $controller = new ManagerController();
-        return $controller->show();
+        try {
+            $controller = new ManagerController();
+            return $controller->show();
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
 
     });
 
 
-//          -----Методы для взаимодействия с тикетами-----
+//          -----Методы работы с тикетами-----
 //
 
 
@@ -32,96 +35,52 @@ $router->with("/manager", function () use ($router) {
 
         $controller = new TicketsController();
 
-        $router->get("/update/[i:id]/?",
+        // Отмена ордера, пришедшего от заказчика
+        $router->get("/cancel_order/[i:id]/?",
             function (Request $request, Response $response) use ($controller) {
 
                 // Auth::middleware($response);
 
-                return $controller->update($request->param("id"));
+                return $controller->moveOrder($request->param("id"), 2);
 
             });
 
-        $router->post("/create/?",
+        // Назначать заказ (id) исполнителю (employee_id)
+        $router->get("/appoint_order/[i:id]/[i:employee_id]/?",
             function (Request $request, Response $response) use ($controller) {
 
                 // Auth::middleware($response);
 
-                $controller->postCreate($request);
-                return $response->redirect(Helpers::url("admin"))->send();
+                return $controller->moveOrder($request->param("id"), 6, $request->param("employee_id"));
 
             });
 
-        $router->post("/update/?",
+        $router->post("/appoint_order/re/?",
+            function (Request $request, Response $response)
+            {
+                $response->redirect(Helpers::url("appoint_order", "re", $request->param("id"), $request->param("employee_id")))->send();
+        });
+
+        // Отклонение работы исполнителя
+        $router->get("/cancel_work/[i:id]/?",
             function (Request $request, Response $response) use ($controller) {
 
                 // Auth::middleware($response);
 
-                $controller->postUpdate($request);
-                return $response->redirect(Helpers::url("admin"))->send();
+                return $controller->moveOrder($request->param("id"), 3);
 
             });
 
-        $router->get("/delete/[i:id]/?",
+        // Завершить заказ
+        $router->get("/complete/[i:id]/?",
             function (Request $request, Response $response) use ($controller) {
 
                 // Auth::middleware($response);
-                $controller->postDelete($request);
-                return $response->redirect(Helpers::url("admin"))->send();
+
+                return $controller->moveOrder($request->param("id"), 5);
 
             });
 
     });
-
-
-//
-//    $router->with("/categories",function () use ($router) {
-//
-//        $controller = new CategoriesController();
-//
-//        $router->get("/?", function () use ($controller) {
-//            return $controller->show();
-//        });
-//
-//        $router->get("/create/?",
-//            function (Request $request, Response $response) use ($controller) {
-//                Auth::middleware($response);
-//                return $controller->create();
-//            });
-//
-//        $router->get("/update/[i:id]/?",
-//            function (Request $request, Response $response) use ($controller) {
-//                Auth::middleware($response);
-//                return $controller->update($request->param("id"));
-//            });
-//
-//        $router->post("/create/?",
-//            function (Request $request, Response $response) use ($controller) {
-//
-//                Auth::middleware($response);
-//
-//                $controller->postCreate($request);
-//                return $response->redirect(Helpers::url("admin", "categories"))->send();
-//
-//            });
-//
-//        $router->post("/update/?",
-//            function (Request $request, Response $response) use ($controller) {
-//
-//                Auth::middleware($response);
-//                $controller->postUpdate($request);
-//                return $response->redirect(Helpers::url("admin", "categories"))->send();
-//
-//            });
-//
-//        $router->get("/delete/[i:id]/?",
-//            function (Request $request, Response $response) use ($controller) {
-//
-//                Auth::middleware($response);
-//                $controller->postDelete($request);
-//                return $response->redirect(Helpers::url("admin", "categories"))->send();
-//
-//            });
-//
-//    });
 
 });

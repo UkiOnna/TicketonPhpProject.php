@@ -17,6 +17,16 @@ $router->get("/customer/?", function () {
     $controller->show();
 });
 
+$router->get("/customer/cancelledTickets/?", function () {
+    $controller=new CustomerController();
+    $controller->showCancelled();
+});
+
+$router->get("/customer/[i:id]/?", function (Request $request) {
+    $controller=new CustomerController();
+    $controller->showById($request->param("id"));
+});
+
 $router->post("/customer/?", function (Request $request,Response $response) {
     //Auth::middleware($response);
     $users=new Users();
@@ -32,5 +42,11 @@ $router->post("/customer/?", function (Request $request,Response $response) {
         "status_id"=>1
     ]);
     return  $response->redirect("/customer")->send();
+});
+
+$router->post("/customer/cancelledTickets/?", function (Request $request,Response $response) {
+    //Auth::middleware($response);
+    $id = $request->param("id");
+    return  $response->redirect("/customer/$id/")->send();
 });
 

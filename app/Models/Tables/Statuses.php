@@ -1,5 +1,4 @@
 <?php
-//Made by Lev
 
 namespace Models\Tables;
 
@@ -9,28 +8,18 @@ class Statuses extends Table {
 
     protected static $table_name = "statuses";
 
-    function map($array){
-        foreach ($array as &$item){
-
-            $statuses = new Statuses();
-            $users = new Users();
-
-            $id = $item["status_id"];
-
-            $item["status"] = $statuses->get( "*", [
-                "id" => $id,
-                "name" => $statuses->select("*", "name", [
-                    "id" => $id
-                ])
-            ]);
-
-//            $item["author"] = $users->get("*", [
-//                "id" => $item["user_id"]
+//    function map($array){
+//        foreach ($array as &$item){
+//
+//            $statuses = new Statuses();
+//
+//            $item["status"] = $statuses->get( "*", [
+//                "id" => $item["status_id"]
 //            ]);
-
-        }
-
-        return $array;
-    }
+//
+//        }
+//
+//        return $array;
+//    }
 
 }
