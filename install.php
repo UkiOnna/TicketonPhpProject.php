@@ -144,5 +144,5 @@ $db->insert("roles", [
 ]);
 $db->insert("roles", [
     "id" => 4,
-    "name" => "employer"
+    "name" => "employee"
 ]);

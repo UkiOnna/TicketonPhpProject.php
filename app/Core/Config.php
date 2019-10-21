@@ -40,7 +40,7 @@ class Config
         $composerFile = file_get_contents($composerDir);
         $composer = json_decode("$composerFile", true);
 
-        self::keyOrArray($composer, $key);
+        return self::keyOrArray($composer, $key);
     }
 
     static function keyOrArray(array $arr, $key = null)
