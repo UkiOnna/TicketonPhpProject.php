@@ -28,7 +28,7 @@ $router->get("/customer/[i:id]/?", function (Request $request) {
 });
 
 $router->post("/customer/?", function (Request $request,Response $response) {
-    //Auth::middleware($response);
+    Auth::middleware($response);
     $users=new Users();
     $user=$users->has([
         "hash" => Cookies::get("hash")
@@ -45,7 +45,7 @@ $router->post("/customer/?", function (Request $request,Response $response) {
 });
 
 $router->post("/customer/cancelledTickets/?", function (Request $request,Response $response) {
-    //Auth::middleware($response);
+    Auth::middleware($response);
     $id = $request->param("id");
     return  $response->redirect("/customer/$id/")->send();
 });

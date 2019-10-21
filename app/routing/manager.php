@@ -7,6 +7,7 @@ use Controllers\Manager\TicketsController;
 use Core\Helpers;
 use Klein\Request;
 use Klein\Response;
+use Models\Auth;
 
 $router->with("/manager", function () use ($router) {
 
@@ -16,7 +17,7 @@ $router->with("/manager", function () use ($router) {
 
     $router->get("/dashboard/?", function (Request $request, Response $response) {
 
-        // Auth::middleware($response);
+        Auth::middleware($response);
         try {
             $controller = new ManagerController();
             return $controller->show();
@@ -39,7 +40,7 @@ $router->with("/manager", function () use ($router) {
         $router->get("/cancel_order/[i:id]/?",
             function (Request $request, Response $response) use ($controller) {
 
-                // Auth::middleware($response);
+                 Auth::middleware($response);
 
                 return $controller->moveOrder($request->param("id"), 2);
 
@@ -49,7 +50,7 @@ $router->with("/manager", function () use ($router) {
         $router->get("/appoint_order/[i:id]/[i:employee_id]/?",
             function (Request $request, Response $response) use ($controller) {
 
-                // Auth::middleware($response);
+                 Auth::middleware($response);
 
                 return $controller->moveOrder($request->param("id"), 6, $request->param("employee_id"));
 
@@ -65,7 +66,7 @@ $router->with("/manager", function () use ($router) {
         $router->get("/cancel_work/[i:id]/?",
             function (Request $request, Response $response) use ($controller) {
 
-                // Auth::middleware($response);
+                 Auth::middleware($response);
 
                 return $controller->moveOrder($request->param("id"), 3);
 
@@ -75,7 +76,7 @@ $router->with("/manager", function () use ($router) {
         $router->get("/complete/[i:id]/?",
             function (Request $request, Response $response) use ($controller) {
 
-                // Auth::middleware($response);
+                 Auth::middleware($response);
 
                 return $controller->moveOrder($request->param("id"), 5);
 
