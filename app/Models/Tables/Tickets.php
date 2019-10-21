@@ -13,18 +13,16 @@ class Tickets extends Table {
         foreach ($array as &$item){
 
             $statuses = new Statuses();
-//            $users = new Users();
+            $users = new Users();
 
-            $id = $item["status_id"];
 
-            $item["status"] = $statuses->get( "*", [
-                "id" => $id,
-                "name"
+            $item['status'] = $statuses->get( "*", [
+                "id" => $item["status_id"]
             ]);
 
-//            $item["customer"] = $users->get("*", [
-//                "id" => $item["customer_id"]
-//            ]);
+            $item["customer"] = $users->get("*", [
+                "id" => $item["customer_id"]
+            ]);
 
         }
 

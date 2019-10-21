@@ -1,5 +1,4 @@
 {include file="global/head.tpl"}
-{include file="manager/blocks/navbar.tpl"}
 
 <div class="container">
 

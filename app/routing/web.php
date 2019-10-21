@@ -12,4 +12,6 @@ $router->get("/?", function () {
     $controller->show();
 });
 
+include "manager.php";
+
 $router->dispatch();
