@@ -9,7 +9,7 @@ class Users extends Table
 {
     protected static $table_name = "users";
 
-    function map($array)
+    function map($array)//added by Yernar
     {
         foreach ($array as &$item) {
             $roles = new Roles();

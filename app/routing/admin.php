@@ -2,6 +2,7 @@
 //created by Yernar
 use Controllers\Admin\DashboardController;
 use Controllers\Admin\UsersController;
+use Controllers\Admin\TicketsController;
 use Core\Helpers;
 use Klein\Request;
 use Klein\Response;
@@ -23,7 +24,7 @@ $router->with("/admin/dashboard", function () use ($router) {
         $controller = new DashboardController();
         return $controller->show();
     });
-
+//**************************
     $router->with( "/users", function () use ($router){
         $controller = new UsersController();
         $router->get("/[create:action]?", function (Request $request, Response $response) use ($controller){
@@ -50,7 +51,7 @@ $router->with("/admin/dashboard", function () use ($router) {
             print_r("update");
         });
     });
-
+//****************
     $router->with( "/managers", function () use ($router){
         $router->get("/?", function (Request $request, Response $response){
 //        Auth::middleware($response);
@@ -77,9 +78,23 @@ $router->with("/admin/dashboard", function () use ($router) {
     });
 
     $router->with( "/tickets", function () use ($router){
-        $router->get("/?", function (Request $request, Response $response){
-    //        Auth::middleware($response);
-            print_r("tickets");
+      $controller = new TicketsController();
+        $router->get("/?", function (Request $request, Response $response) use ($controller){
+        //       Auth::middleware($response);
+            return $controller->show();
+        });
+        $router->get("/[update:action]/[i:id]?", function (Request $request, Response $response) use ($controller){
+        //        Auth::middleware($response);
+            return $controller->form($request->param("id"));
+        });
+        $router->post("/[update:action]?", function (Request $request, Response $response) use ($controller){
+        //        Auth::middleware($response);
+            $response->redirect("/admin/dashboard/tickets");
+        });
+        $router->get("/[delete:action]/[i:id]?", function (Request $request, Response $response) use ($controller){
+//        Auth::middleware($response);
+            $controller->delete($request->param("id"));
+            $response->redirect("/admin/dashboard/tickets");
         });
 
     });
