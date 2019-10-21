@@ -8,7 +8,8 @@ use Models\Tables\Users;
 $router = new Klein();
 
 include "admin.php";
-include "auth.php";include "customer.php";include "manager.php";
+include "auth.php";
+include "customer.php";
 $router->get("/?", function () {
     $controller=new IndexController();
     $controller->show();
