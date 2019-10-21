@@ -64,7 +64,8 @@ $router->with("/admin/dashboard", function () use ($router) {
     $router->with( "/customers", function () use ($router){
         $router->get("/?", function (Request $request, Response $response){
     //        Auth::middleware($response);
-            print_r("customers");
+            $controller = new UsersController();
+            return $controller->show("customer");
         });
 
     });
@@ -72,7 +73,8 @@ $router->with("/admin/dashboard", function () use ($router) {
     $router->with( "/employees", function () use ($router){
         $router->get("/?", function (Request $request, Response $response){
     //        Auth::middleware($response);
-            print_r("employees");
+            $controller = new UsersController();
+            return $controller->show("employee");
         });
 
     });

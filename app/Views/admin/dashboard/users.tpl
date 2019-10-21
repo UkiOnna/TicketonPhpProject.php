@@ -1,7 +1,23 @@
 {include file="admin/blocks/head.tpl"}
 {*created by Yernar*}
 
-<p class="h2">{$users[0].role.name}</p>
+
+
+{if $users[0].role.name == "manager"}
+
+    <p class="h3">Менеджеры</p>
+
+{elseif $users[0].role.name == "customer"}
+
+    <p class="h3">Заказчики</p>
+
+{elseif $users[0].role.name == "employee"}
+
+    <p class="h3">Работники</p>
+
+{/if}
+
+
 <br/>
 
 <a style="width: 150px; "
@@ -12,6 +28,7 @@
     <tr>
         <th scope="col">#</th>
         <th scope="col">Имя</th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>

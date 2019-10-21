@@ -23,7 +23,7 @@ public function __construct(){
 
   function form($ticket_id){
     $ticket = $this->table->select("*",["id"=>$ticket_id])[0];
-    return $this->render("admin/dashboard/ticket_edit",["ticket"=>$ticket]);
+    return $this->render("admin/dashboard/ticket_update",["ticket"=>$ticket]);
   }
 
   function delete($ticket_id){

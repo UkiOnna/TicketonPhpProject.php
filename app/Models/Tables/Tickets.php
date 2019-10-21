@@ -35,12 +35,12 @@ class Tickets extends Table {
       foreach ($array as &$item) {
         $statuses = new Statuses();
         $id = $item["status_id"];
-        $item["status"] = $statuses->get( "*", [ "id" => $id ]);
+        $item["status"] = $statuses->select( "*", [ "id" => $id ]);
         $users = new Users();
         $empl_id = $item["employee_id"];
-        $item["employee"] = $users->get("*", ["id"=>$empl_id])[0];
+        $item["employee"] = $users->select("*", ["id"=>$empl_id]);
         $cust_id = $item["customer_id"];
-        $item["customer"] = $users->get("*", ["id"=>$cust_id])[0];
+        $item["customer"] = $users->select("*", ["id"=>$cust_id]);
       }
       return $array;
     }

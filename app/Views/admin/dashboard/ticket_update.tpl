@@ -6,7 +6,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <input type="text" style="visibility:hidden; width:0px"
-      name="id" value="{$ticket.id}">
+        name="id" value="{$ticket.id}">
       <label >Title</label>
       <input type="text" class="form-control" placeholder="Name"
       name="title" value="{$ticket.title}">

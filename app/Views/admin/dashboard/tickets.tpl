@@ -5,8 +5,6 @@
 <p class="h2">Tickets</p>
 <br/>
 
-<a style="width: 150px; "
-   class="btn btn-primary btn-sm" href="/admin/dashboard/tickets/create" role="button">Добавить +</a>
 
 <table class="table">
     <thead class="thead-dark">
@@ -17,10 +15,12 @@
         <th scope="col">Статус</th>
         <th scope="col">Исполнитель</th>
         <th scope="col">Заказчик</th>
+        <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
     {foreach $tickets as $ticket}
+        {print_r($ticket)}<br/>
         <tr>
     <th scope="row">{$ticket.id}</th>
     <td>{$ticket.title}</td>
