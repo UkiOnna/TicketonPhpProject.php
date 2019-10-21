@@ -3,14 +3,15 @@
 
 namespace Controllers\Admin;
 
-use Models/Tables;
+use Core\Abstracts\Controller;
+use Models\Tables\Tickets;
 
 class TicketsController extends Controller
 {
   private $table;
 
 public function __construct(){
-  $this->$table = new Tickets();
+  $this->table = new Tickets();
 }
 
   function show(){
