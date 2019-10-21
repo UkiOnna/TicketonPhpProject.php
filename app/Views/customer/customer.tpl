@@ -46,15 +46,17 @@
 <div class="container">
     <form method="post">
         <label for="title">Title</label>
-        <input type="text" id="title" name="title" placeholder="Title">
+        <input value="{$ticket[0].title}" type="text" id="title" name="title" placeholder="Title">
 
 
         <label for="description">Description</label>
-        <textarea id="description" name="description" placeholder="Description" style="height:200px"></textarea>
+        <textarea id="description" name="description" placeholder="Description" style="height:200px">{$ticket[0].description}</textarea>
 
         <input type="submit" value="Submit">
     </form>
+
 </div>
+<a href="http://ticketonphpproject.php:8000/customer/cancelledTickets">Cancelled tickets</a>
 
 </body>
 </html>
